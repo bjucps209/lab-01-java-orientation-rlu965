@@ -1,0 +1,73 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test
+      id: test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test
+        setup-command: ''
+        command: java Grader.java
+        input: |
+          57
+          75
+          61
+          55
+          78
+          48
+          78
+          93
+          34
+          69
+          46
+          96
+          64
+          33
+          52
+          74
+          63
+          41
+          99
+          45
+        expected-output: |
+          57
+          75
+          61
+          55
+          80
+          50
+          80
+          95
+          34
+          70
+          46
+          96
+          65
+          33
+          52
+          75
+          65
+          41
+          100
+          45
+        comparison-method: exact
+        timeout: 10
+        max-score: 6
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST_RESULTS: "${{steps.test.outputs.result}}"
+      with:
+        runners: test
