@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="app.AppTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-02-26T02:45:41" hostname="DESKTOP-G2AB6K3" time="0.025">
+  <properties/>
+  <testcase name="TestProcessMove()" classname="app.AppTest" time="0.025">
+    <failure message="java.lang.NullPointerException: Cannot load from object array because &quot;array&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot load from object array because &quot;array&quot; is null
+	at app.TicTacToeGame.processMove(TicTacToeGame.java:43)
+	at app.AppTest.TestProcessMove(AppTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
